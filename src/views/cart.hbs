@@ -1,0 +1,47 @@
+<header class="row">>  
+    {{>nav}}
+    <h1 class="titulo-h1 justify-content-center mt-1 jello-horizontal">Bienvenido a Mercado Online</h1>
+    <h2 class="titulo-h2 justify-content-center mb-1">El sitio lider de ventas online de Argentina</h2>
+</header>
+
+<main class="row justify-content-around">
+
+<div class="row justify-content-around categorias">
+    <div class="col-12 col-sm-2">
+        <h3 class="cat-til"><br>Categorías</h3>
+          <ul class="lista-botones">
+              <li><button class="boton" id="boton-bazar">Bazar</button></li>
+              <li><button class= "boton" id="boton-cocina">Cocina</button></li>
+              <li><button class= "boton" id="boton-electro">Electro</button></li>
+              <li><button class= "boton"id="boton-audio">Audio</button></li>
+              <li><button class= "boton" id="boton-todo" >Todo</button></li>
+          </ul>
+    </div>
+  <div class="col-12 col-sm-10"><img src="./img/ventaonline.jpg" class="img-fluid"></div>
+</div>
+
+
+
+<h1 class="titulo-carrito m-1">Mi Carrito</h1>
+
+<div class="row justify-content-around">
+{{#each carts}}
+  <div class="col-5 col-sm-3 m-2 ms-0">
+    <img src="./img/products/{{url}}" class="col-12 m-1 img-fluid" alt="...">
+    <h5>{{nombre}}</h5>
+    <h6>Precio: ${{precio}}</h6>
+    <h6>Estado: {{estado}}</h6>
+    <p>{{descripcion}}</p>
+        
+  <form action="/carrito?_method=delete" method="post">
+    <input type="hidden" name="id" value={{id}}>
+    <button class="m-3" type="submit">Sacar del carrito</button>
+  </form>
+
+  </div>
+ {{/each}}
+</div>
+
+</main>
+
+{{>footer}}

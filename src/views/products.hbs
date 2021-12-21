@@ -1,0 +1,42 @@
+{{>nav}}
+
+<div class="row">
+    
+    <h1 class="titulo-h1 justify-content-center mt-1 jello-horizontal">Mercado Online</h1>
+    <h2 class="titulo-h2 justify-content-center mb-1">El sitio lider de ventas online de Argentina</h2>
+    </div>  
+
+<main class="row menu">
+    
+<div class="row justify-content-around categorias">
+  <div class="col-6 col-sm-10"><img src="./img/ventaonline.jpg" class="img-fluid"></div>
+</div>
+
+  
+  <div class="row justify-content-around mt-3 mb-3">
+   {{#each productos}}
+    <div class="col-5 col-sm-3 select-producto m-2 ms-0">
+      
+      <img src="./img/products/{{url}}" class="col-12 m-1 imagen-producto" alt="...">
+      <h5 class="titulo-producto">{{nombre}}</h5>
+      <h6>${{precio}},00</h6>
+      <p class="descripcion-produ">{{descripcion}}</p>
+        
+        <form action="/carrito" method="post">
+          <input type="hidden" name="id" value={{id}}>
+          <input type="hidden" name="nombre" value="{{nombre}}">
+          <input type="hidden" name="precio" value={{precio}}>
+          <input type="hidden" name="url" value="{{url}}">
+          <input type="hidden" name="descripcion" value="{{descripcion}}">
+          <input type="hidden" name="estado" value="{{estado}}">
+            <button class="m-3" type="submit">Agregar al carrito</button>
+        </form>
+      
+      </div>
+    {{/each}}
+  </div>
+
+</main>
+    
+<footer class="row footer justify-content-center">Buenos Aires, Argentina. Año 2021. <br>Todos los derechos reservados.</footer>
+
