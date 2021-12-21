@@ -59,9 +59,9 @@ export const view = async (req,res)=>{
   export const update = async (req,res) =>{
     
     let product = {}
-    if(req.body.name)  product.name = req.body.name
-    if(req.body.price) product.price=req.body.price
-    if(req.body.stock) product.stock = req.body.stock
+    if(req.body.nombre)  product.nombre = req.body.nombre
+    if(req.body.precio) product.precio=req.body.precio
+    if(req.body.estado) product.estado = req.body.estado
     if(req.body.url) product.url = req.body.url
     try {
       const productfound = await Product.find({_id:req.body._id}).lean()
